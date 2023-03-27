@@ -1,51 +1,47 @@
 #include "main.h"
 
 /**
- * _printf - Printf function copy
- * Description: This is a modified version of printf
- * @format: String to print
+ * _printf - Custom printf function
+ * @format: Format string
+ *
  * Return: Number of characters printed
  */
 int _printf(const char *format, ...)
 {
 	int count = 0;
-	const char *pf;
-	int (*f)();
-	char *buffer = buffer_init();
 	va_list args;
+	int (*print_func[])(va_list) = {print_char, print_string, print_percent};
 
 	va_start(args, format);
-	if (!buffer)
-		return (0);
-	if (!format || (format[0] == '%' && format[1] == '\0'))
+	while (*format)
 	{
-		free(buffer);
-		return (-1);
-	}
-	for (pf = format; *pf; pf++)
-	{
-		if (*pf == '%')
+		if (*format == '%')
 		{
-			f = verify_format(pf);
-			if (f)
+			format++;
+			switch (*format)
 			{
-				count += f(args, buffer);
-				pf++;
-			}
-			else
-			{
-				_putchar(buffer, *pf);
-				count++;
+				case 'c':
+					count += print_func[0](args);
+					break;
+				case 's':
+					count += print_func[1](args);
+					break;
+				case '%':
+					count += print_func[2](args);
+					break;
+				default:
+					count += _putchar('%');
+					count += _putchar(*format);
+					break;
 			}
 		}
 		else
 		{
-			_putchar(buffer, *pf);
-			count++;
+			count += _putchar(*format);
 		}
+		format++;
 	}
+
 	va_end(args);
-	buffer_print(buffer, buffer_pos(buffer));
-	free(buffer);
 	return (count);
 }
