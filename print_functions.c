@@ -4,6 +4,7 @@
 /**
  * print_char - Prints character
  * @args: List of arguments
+ * Return: Function that prints characters.
  */
 
 int print_char(va_list args)
@@ -17,7 +18,7 @@ int print_char(va_list args)
 /**
  * print_string - Prints a string
  * @args: List of argument
- *
+ * Return: prints a string value
  */
 
 int print_string(va_list args)
@@ -40,8 +41,8 @@ int print_string(va_list args)
 
 /**
  * print_int - Prints the integers
- * @args - List of arguments
- *
+ * @args: List of arguments
+ * Return: An integer value
  */
 
 int print_int(va_list args)
@@ -101,7 +102,7 @@ int print_percent(va_list args)
 /**
  * print_binary - Prints the binaries
  * @args: Lists of arguments
- *
+ * Return: Binary value
  */
 
 int print_binary(va_list args)
@@ -134,12 +135,11 @@ int print_binary(va_list args)
 /**
  * print_unsigned - Prints unsigned characters
  * @args: lists of arguments
- *
+ * Return: an unsigned value
  */
 
 int print_unsigned(va_list args)
 {
-	int i;
 	unsigned int num = va_arg(args, unsigned int);
 	int count = 0;
 	int temp = num;
@@ -160,7 +160,7 @@ int print_unsigned(va_list args)
 		while (count > 0)
 		{
 			temp = num;
-			for (i = 0; i < count - 1; i++)
+			for (int i = 0; i < count - 1; i++)
 			{
 				temp /= 10;
 			}
@@ -175,12 +175,11 @@ int print_unsigned(va_list args)
 /**
  * print_octal - Prints octal number
  * @args: Lists of arguments
- *
+ * Return: binary values in base 8
  */
 
 int print_octal(va_list args)
 {
-	int i;
 	unsigned int num = va_arg(args, unsigned int);
 	int count = 0;
 	char octal[32] = {0};
@@ -197,7 +196,7 @@ int print_octal(va_list args)
 			octal[count++] = (num % 8) + '0';
 			num /= 8;
 		}
-		for (i = count - 1; i >= 0; i--)
+		for (int i = count - 1; i >= 0; i--)
 		{
 			_putchar(octal[i]);
 		}
@@ -209,13 +208,12 @@ int print_octal(va_list args)
  * print_hex - Prints hexadecimal binary
  * @args: lists of arguments
  * @uppercase: Prints in uppercase letter
- *
+ * Return: Value of base 16
  */
 
 int print_hex(va_list args, int uppercase)
 {
 	unsigned int num = va_arg(args, unsigned int);
-	int i;
 	int count = 0;
 	char hex[32] = {0};
 	char hex_chars[] = "0123456789abcdef";
@@ -233,7 +231,7 @@ int print_hex(va_list args, int uppercase)
 			hex[count++] = uppercase ? hex_chars_upper[num % 16] : hex_chars[num % 16];
 			num /= 16;
 		}
-		for (i = count - 1; i >= 0; i++)
+		for (int i = count - 1; i >= 0; i++)
 		{
 			_putchar(hex[i]);
 		}

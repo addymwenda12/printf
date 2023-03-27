@@ -18,6 +18,7 @@ typedef struct buffer
 int _printf(const char *format, ...);
 int _putchar(buffer_t *buffer, char c);
 int print_char(buffer_t *buffer, va_list args);
+int print_unsigned(va_list args);
 int print_string(buffer_t *buffer, va_list args);
 int print_percent(buffer_t *buffer, va_list args);
 int print_int_flags(buffer_t *buffer, va_list args, int show_sign, int space);
