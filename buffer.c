@@ -1,7 +1,6 @@
 #include "main.h"
 #include <unistd.h>
 
-#define BUFFER_SIZE 1024
 
 /**
  * flush_buffer - Flushes the buffer by writing its content to stdout

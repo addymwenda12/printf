@@ -3,6 +3,7 @@
 
 #include <stdarg.h>
 
+#define BUFFER_SIZE 1024
 /**
  * struct buffer - buffer structure to store characters
  * @data: character array to store characters

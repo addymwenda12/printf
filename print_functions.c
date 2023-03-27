@@ -88,7 +88,7 @@ int print_int(va_list args)
 /**
  * print_percent - Prints the percentage
  * @args: Lists of arguments
- *
+ * Return: The percentage sign
  */
 
 int print_percent(va_list args)
@@ -181,7 +181,7 @@ int print_unsigned(va_list args)
 int print_octal(va_list args)
 {
 	int i;
-	unsigned int num = va_args(args, unsigned int);
+	unsigned int num = va_arg(args, unsigned int);
 	int count = 0;
 	char octal[32] = {0};
 
