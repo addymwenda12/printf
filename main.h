@@ -42,4 +42,23 @@ char *buffer_flush(char *buffer);
 /* Verification */
 int (*verify_format(const char *s))();
 
+/* Function specifiers 2 */
+int print_number(int n, char *buffer);
+int print_d(va_list args, char *buffer);
+int print_i(va_list args, char *buffer);
+
+/* Advanced task */
+int print_number_a(unsigned int, char *buffer);
+int print_b(va_list args, char *buffer);
+int print_b(va_list args, char *buffer);
+int print_u(va_list args, char *buffer);
+int print_o(va_list args, char *buffer);
+int print_x(va_list args, char *buffer);
+int print_X(va_list args, char *buffer);
+int print_hexa(char s, char *buffer);
+int print_S(va_list args, char *buffer);
+int print_r(va_list args, char *buffer);
+int print_p(va_list args, char *buffer);
+int print_R(va_list args, char *buffer);
+
 #endif
