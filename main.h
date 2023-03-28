@@ -1,33 +1,21 @@
 #ifndef MAIN_H
 #define MAIN_H
-
 #include <stdarg.h>
-
-#define BUFFER_SIZE 1024
-/**
- * struct buffer - buffer structure to store characters
- * @data: character array to store characters
- * @index: index of the next position to store a character
- */
-typedef struct buffer
-{
-    char data[BUFFER_SIZE];
-    int index;
-} buffer_t;
-
+#include <stdint.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+int _putchar(char c);
+int print_number(int n);
 int _printf(const char *format, ...);
-int _putchar(buffer_t *buffer, char c);
-int print_char(buffer_t *buffer, va_list args);
-int print_unsigned(va_list args);
-int print_string(buffer_t *buffer, va_list args);
-int print_percent(buffer_t *buffer, va_list args);
-int print_int_flags(buffer_t *buffer, va_list args, int show_sign, int space);
-int print_binary(buffer_t *buffer, va_list args);
-int print_unsigned_flags(buffer_t *buffer, va_list args, int show_sign, int space);
-int print_octal_flags(buffer_t *buffer, va_list args, int alternate_form);
-int print_hex_flags(buffer_t *buffer, va_list args, int uppercase, int alternate_form);
-int print_string_escaped(buffer_t *buffer, va_list args);
-int print_pointer(buffer_t *buffer, va_list args);
-int print_int_length(buffer_t *buffer, va_list args, int show_sign, int space, char length);
-
+int print_octal(unsigned int n);
+int print_unsig(unsigned int n);
+int print_hexaup(unsigned int n);
+int print_hexalow(unsigned int n);
+int print_bi(unsigned int n);
+int _printstring(char *s);
+int rot13(char *point);
+int print_rev(char *);
+int print_hl(uintptr_t n);
 #endif
